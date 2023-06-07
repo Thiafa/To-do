@@ -1,0 +1,31 @@
+# Ignorar diretório de módulos/pacotes
+node_modules/
+
+# Ignorar arquivos de ambiente
+.env
+
+# Ignorar cache do npm
+.npm/
+
+# Ignorar pacotes instalados pelo yarn
+yarn.lock
+
+# Ignorar pacotes instalados pelo pnpm
+.pnpm-lock.yaml
+.pnpm/
+
+# Ignorar diretório de construção
+build/
+
+# Ignorar diretório de cobertura de testes
+coverage/
+
+# Ignorar arquivos gerados durante a execução do projeto
+dist/
+
+# Ignorar logs
+*.log
+
+# Ignorar arquivos de configuração do IDE
+.idea/
+.vscode/
