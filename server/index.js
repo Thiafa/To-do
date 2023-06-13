@@ -17,15 +17,10 @@ const connectDatabase = async () => {
 };
 
 connectDatabase();
-const userRoutes = require('./src/routes/UserRoutes');
+
+const userRoutes = require('./src/routes/AuthRoutes');
 
 app.use('/api/user', userRoutes);
-
-app.get('/', (req, res, next) => {
-  res.status(200).json({
-    teste: 'teste da rota home',
-  });
-});
 
 app.listen(port || 3000, () => {
   console.log(`Servidor rodando na porta ${port}`);
