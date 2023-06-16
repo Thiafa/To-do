@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const { port, mongodb } = require('./src/config/env.config');
 
-const main = async () => {
+app.use(express.json());
+
+const connectDatabase = async () => {
   try {
     await mongoose.connect(mongodb);
     console.log('Banco de dados conectado');
@@ -14,15 +16,11 @@ const main = async () => {
   }
 };
 
-main();
+connectDatabase();
 
-app.get('/', (req, res, next) => {
-  res.status(200).json({
-    succeess: true,
-    msg: 'Olá mundo',
-    data: null,
-  });
-});
+const userRoutes = require('./src/routes/AuthRoutes');
+
+app.use('/api/user', userRoutes);
 
 app.listen(port || 3000, () => {
   console.log(`Servidor rodando na porta ${port}`);
